@@ -1,10 +1,19 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import GameField from "@/components/GameField";
+import Initial from "@/components/Initial";
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
+    <>
+    <Header />
+    <main
+    // className={styles.main}
+    >
+      {/* <GameField/> */}
+      <Initial pagePath={"/"} />
+      {/* <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>app/page.js</code>
@@ -22,8 +31,7 @@ export default function Home() {
               className={styles.vercelLogo}
               width={100}
               height={24}
-              priority
-            />
+              priority />
           </a>
         </div>
       </div>
@@ -35,8 +43,7 @@ export default function Home() {
           alt="Next.js Logo"
           width={180}
           height={37}
-          priority
-        />
+          priority />
       </div>
 
       <div className={styles.grid}>
@@ -89,7 +96,10 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
+    <Footer />
+    </>
+   
   );
 }

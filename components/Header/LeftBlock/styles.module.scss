@@ -1,0 +1,16 @@
+@use '@styles/variables';
+
+.layoutName {
+  display: none;
+
+  @media (min-width:  50rem) {
+    display: inline-block;
+    min-width: 10.4375rem;
+    background-color: variables.$colorDarkGrey;
+    padding: 0.0625rem 0.625rem 0.125rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}

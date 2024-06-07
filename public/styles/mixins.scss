@@ -1,0 +1,64 @@
+@use '/public/styles/variables.scss';
+
+@mixin visuallyHidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+@mixin visuallyHiddenReset {
+  position: static;
+  height: initial;
+  width: initial;
+  overflow: visible;
+  clip: initial;
+  white-space: initial;
+}
+
+@mixin container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  width: 100%;
+}
+
+@mixin gridContainer {
+  display: grid;
+  max-width: 100%;
+  width: 100%;
+}
+
+@mixin resetButtonStyles {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+@mixin toolsButton {
+  @include resetButtonStyles;
+  flex-shrink: 0;
+  width: 1.375rem;
+  height: 1.375rem;
+  padding: 0.25rem;
+  border-radius: 0.75rem;
+  background-color: variables.$colorYellow;
+  user-select: none;
+
+  & svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@mixin sectionTitle {
+  font-weight: 700;
+  font-size: variables.$fontSizeTitleRegular;
+  text-align: center;
+  text-transform: uppercase;
+  color: variables.$colorYellow;
+  margin: 0 0 1.25rem;
+}

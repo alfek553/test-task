@@ -1,0 +1,22 @@
+@use '@styles/mixins';
+@use '@styles/variables';
+
+.container,
+.rightBlock {
+  @include mixins.container;
+  align-items: center;
+  flex-direction: row;
+}
+
+.container {
+  z-index: 2000;
+  justify-content: space-between;
+  min-height: 1.9rem;
+  background-color: variables.$colorWhite;
+  user-select: none;
+  padding: 0 0.625rem;
+}
+
+.rightBlock {
+  max-width: fit-content;
+}
