@@ -13,9 +13,16 @@
     cursor: grab;
     left: 0;
     top: 0;
+    // background-image: url('/image/1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     // transition: transform 0.3s ease-out;
     // position: relative;
     // overflow: hidden;
+    }
+.dragging {
+  box-shadow: 8px 8px 8px #000;
 }
 .drag {
     position: absolute;

@@ -7,12 +7,18 @@ import  { useState, useEffect, useRef } from 'react';
 
 function Card({ x, y, index,zIndex, setZIndex }) {
   const [isAnimating, setIsAnimating] = useState(true);
-  const [draggingIndex, setDraggingIndex] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
   const cardRef = useRef(null);
 
+  const [randomNumber, setRandomNumber] = useState(1); 
+
+useEffect(() => {
+  setRandomNumber(Math.floor(Math.random() * 4) + 1);// Генерируем случайное число от 1 до 4 для изображения
+}, []); // Вычисляем randomNumber только один раз при монтировании
+
   const handleDragStart = () => {
-    // setDraggingIndex(index);
     setZIndex(index, Math.max(...zIndex) + 1); // Установить самый высокий zIndex
+    setIsDragging(true);
   };
 
   useEffect(() => {
@@ -23,7 +29,7 @@ function Card({ x, y, index,zIndex, setZIndex }) {
 
 
   const handleDragEnd = () => {
-    // setDraggingIndex(null);
+    setIsDragging(false);
   };
 
   return (
@@ -36,11 +42,15 @@ function Card({ x, y, index,zIndex, setZIndex }) {
     >
       <div
         className={`${styles.card} 
-        ${isAnimating ? styles.animating : ''}`
+        ${isAnimating ? styles.animating : ''}
+        ${isDragging ? styles.dragging : ''}`
       
       }
       ref={cardRef}
-      style={{ '--x': `${x}px`, '--y': `${y}px`,zIndex: zIndex[index] }}
+      style={{ '--x': `${x}px`, '--y': `${y}px`,
+      zIndex: zIndex[index],
+      backgroundImage: `url('/image/${randomNumber}.png')`,
+    }}
         // style={{ left: x, top: y }}
       >
       </div>
@@ -49,28 +59,3 @@ function Card({ x, y, index,zIndex, setZIndex }) {
 }
 
 export default Card;
-
-
-// const Card = ({ x, y }) => {
-//   const [dragging, setDragging] = useState(false);
-//   const cardRef = useRef(null);
-
-//   const onStart = () => setDragging(true);
-//   const onStop = () => setDragging(false);
-
-//   return (
-//     <Draggable
-//       defaultPosition={{ x, y }}
-//       bounds="parent"
-//       onStart={onStart}
-//       onStop={onStop}
-//       nodeRef={cardRef}
-//     >
-//       <div className={styles.card} ref={cardRef}>
-//         {/* Содержимое карточки */}
-//       </div>
-//     </Draggable>
-//   );
-// };
-
-// export default Card;
