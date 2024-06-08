@@ -16,17 +16,30 @@ export default function Form({}) {
     const initialState = {
         message: '',
       }
-    const [state, formAction] = useFormState(createQuestion, initialState)
+    const [state, formAction] = useFormState(createQuestion, initialState);
 
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        await formAction(formData);
+        event.target.reset(); // Сброс формы после успешной отправки
+    };
 
   return (
         <div  className={styles.formContainer}>
             <form  className={styles.form}
-            action={formAction} 
+            onSubmit={handleFormSubmit}
             >
                 <div className={styles.containerInput}>
-                    <input className={styles.input} type="text" id='name' name="name" placeholder="Name" required/>
-                    <input className={styles.input} type="email" id='email' name="email" placeholder="E-mail" required/>
+                    <input className={styles.input}
+                     type="text"
+                      id='name'
+                      name="name"
+                      
+                      placeholder="Name" required/>
+                    <input className={styles.input} type="email"
+                     id='email'
+                     name="email" placeholder="E-mail" required/>
                 </div>
                 <div className={styles.textareaContainer}>
                     <textarea className={styles.textarea} id='comment' name="comment" placeholder="Comment"></textarea>

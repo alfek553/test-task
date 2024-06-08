@@ -7,7 +7,7 @@ export async function createQuestion(prevState, formData) {
     email: formData.get('email'),
     comment: formData.get('comment'),
   };
-  console.log(rawFormData);
+
   return {
     message:"Данные успешно отправлены!",
   }
