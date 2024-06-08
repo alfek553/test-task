@@ -12,7 +12,6 @@ export default async function LayoutsPage({
   
     return (
       <>
-      <Header/>
       <ContactForm
 
         pagePath="Contact-Us"
@@ -20,7 +19,6 @@ export default async function LayoutsPage({
       >
 
       </ContactForm>
-      <Footer/>
       </>
     );
   }

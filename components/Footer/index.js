@@ -27,7 +27,7 @@ async function Footer({
               <NavLink text="Privacy Policy" link="privacy" />
             </li>
             <li className={styles.listItem}>
-              <NavLink text="Rules" link="Rules" />
+              <NavLink text="Rules" link="rules" />
             </li>
           </ul>
         </nav>

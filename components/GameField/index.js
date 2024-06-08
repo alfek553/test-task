@@ -83,6 +83,7 @@ const GameField = () => {
           key={card.id}
           y={card.y}
           x={card.x}
+          sizeBlock={card.sizeBlock}
           index={index}
           zIndex={zIndex}
           setZIndex={setZIndex}

@@ -14,14 +14,11 @@ function Logo({
     
 }) {
   const router = useRouter();
-  let localePath ="en"
-    // currentLang == 'en' ? '' : currentLang.length == 2 ? currentLang : 'en';
+
 
   const onLogoClick = (e) => {
     e.preventDefault();
 
-    // window.location.replace(`/${localePath}`);
-    // router.refresh(`/${localePath}`);
     window.location.replace(`/`);
     router.refresh(`/`);
   };

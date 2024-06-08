@@ -5,7 +5,7 @@ import styles from './styles.module.scss';
 import  { useState, useEffect, useRef } from 'react';
 
 
-function Card({ x, y, index,zIndex, setZIndex, windowSize }) {
+function Card({ x, y,sizeBlock, index,zIndex, setZIndex, windowSize }) {
 
 
   const [position, setPosition] = useState({ x:x , y: y }); // состояние для позиции
@@ -18,21 +18,19 @@ function Card({ x, y, index,zIndex, setZIndex, windowSize }) {
   // Обновление позиции при изменении размеров окна
   useEffect(() => {
     const handleResize = () => {
-      // const newX = (window.innerWidth - x < 30) ? 100 : x; // 
-          const newX=( windowSize.width/prevWindowSize.current.width) * position.x;
-          const newY = ( windowSize.height/prevWindowSize.current.height) * position.y;
+      
+      const newX=( windowSize.width/prevWindowSize.current.width) * position.x;
+      const newY = ( windowSize.height/prevWindowSize.current.height) * position.y;
+      const newxY = (windowSize.height - newY < (sizeBlock)) ? (windowSize.height - sizeBlock) : newY; // 
+      
             
-            setPosition({ x:newX , y: newY  });
-
+            setPosition({ x:newX , y: newxY  });
     };
 
     handleResize(); // Установить начальную позицию
     prevWindowSize.current = windowSize;
     // return () => window.removeEventListener('resize', handleResize);
   }, [windowSize]);
-
-  console.log("position ",position);
-
 
 
 
