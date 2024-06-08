@@ -5,32 +5,62 @@ import styles from './styles.module.scss';
 import  { useState, useEffect, useRef } from 'react';
 
 
-function Card({ x, y, index,zIndex, setZIndex }) {
-  const [isAnimating, setIsAnimating] = useState(true);
-  const [isDragging, setIsDragging] = useState(false);
-  const cardRef = useRef(null);
+function Card({ x, y, index,zIndex, setZIndex, windowSize }) {
 
+
+  const [position, setPosition] = useState({ x:x , y: y }); // состояние для позиции
+  const [isAnimating, setIsAnimating] = useState(true);//появление карточки
+  const [isDragging, setIsDragging] = useState(false);//перемещается ли карточка
+  const cardRef = useRef(null);//устранение ошибки для dragging
   const [randomNumber, setRandomNumber] = useState(1); 
 
+  const prevWindowSize = useRef(windowSize);
+  // Обновление позиции при изменении размеров окна
+  useEffect(() => {
+    const handleResize = () => {
+      // const newX = (window.innerWidth - x < 30) ? 100 : x; // 
+          const newX=( windowSize.width/prevWindowSize.current.width) * position.x;
+          const newY = ( windowSize.height/prevWindowSize.current.height) * position.y;
+            
+            setPosition({ x:newX , y: newY  });
+
+    };
+
+    handleResize(); // Установить начальную позицию
+    prevWindowSize.current = windowSize;
+    // return () => window.removeEventListener('resize', handleResize);
+  }, [windowSize]);
+
+  console.log("position ",position);
+
+
+
+
 useEffect(() => {
-  setRandomNumber(Math.floor(Math.random() * 4) + 1);// Генерируем случайное число от 1 до 4 для изображения
+  setRandomNumber(Math.floor(Math.random() * 5) + 1);// Генерируем случайное число от 1 до 5 для изображения
+  
+
 }, []); // Вычисляем randomNumber только один раз при монтировании
 
+useEffect(() => {
+  // Начало анимации появления карточки
+  const timeout = setTimeout(() => setIsAnimating(false), 300); // 300ms - длительность анимации в CSS
+  return () => clearTimeout(timeout);
+  }, []);
+  
+  //Карточка нажата
   const handleDragStart = () => {
     setZIndex(index, Math.max(...zIndex) + 1); // Установить самый высокий zIndex
     setIsDragging(true);
   };
 
-  useEffect(() => {
-    // Начало анимации
-    const timeout = setTimeout(() => setIsAnimating(false), 300); // 300ms - длительность анимации в CSS
-    return () => clearTimeout(timeout);
-  }, []);
-
-
-  const handleDragEnd = () => {
+  //Карточка опущена
+  const handleDragEnd = (e, data) => {
     setIsDragging(false);
+    setPosition({ x: data.x, y: data.y });
   };
+
+
 
   return (
     <Draggable
@@ -39,6 +69,7 @@ useEffect(() => {
       onStop={handleDragEnd}
       onStart={handleDragStart}
       nodeRef={cardRef}
+      position={position}
     >
       <div
         className={`${styles.card} 
@@ -47,11 +78,11 @@ useEffect(() => {
       
       }
       ref={cardRef}
-      style={{ '--x': `${x}px`, '--y': `${y}px`,
+      style={{ '--x': `${position.x}px`, '--y': `${position.y}px`,
       zIndex: zIndex[index],
       backgroundImage: `url('/image/${randomNumber}.png')`,
     }}
-        // style={{ left: x, top: y }}
+
       >
       </div>
     </Draggable>
