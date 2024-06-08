@@ -22,9 +22,8 @@ function Card({card, index,zIndex, setZIndex, gameFieldSize }) {
 
   const [isAnimating, setIsAnimating] = useState(true);//появление карточки
   const [isDragging, setIsDragging] = useState(false);//перемещается ли карточка
-  const cardRef = useRef(null);//устранение ошибки для dragging
+  const cardRef = useRef(null);
   const [randomNumber, setRandomNumber] = useState(1); 
-  // const initialPosition = { x, y, sizeBlock };
   const { position, setPosition } = useGameFieldResize(card, gameFieldSize);//хук для вычисления позиции при resize
 
 useEffect(() => {

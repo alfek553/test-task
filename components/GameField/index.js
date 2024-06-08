@@ -22,7 +22,7 @@ const GameField = () => {
   const updateContainerSize = () => {
     if (containerRef.current) {
       const { width, height,left,top } = containerRef.current.getBoundingClientRect();
-      setContainerSize({ width:width-left, height: height + top  });
+      setContainerSize({ width:width-left, height: height - top  });
     }
   };
 
@@ -51,6 +51,12 @@ const GameField = () => {
       if (containerRect.height - y < sizeBlock) {
         y = containerRect.height - sizeBlock;
       }
+      if (y < 0) {
+        y = 0;
+      }
+      if (x < 0) {
+        x = 0;
+      }
 
       if (containerRect.width - x < sizeBlock) {
         x = containerRect.width - sizeBlock;
@@ -60,7 +66,6 @@ const GameField = () => {
       const newZIndex = Math.max(...zIndex, 0) + 1;
     setCards([...cards, {id:uniqueId, x, y,sizeBlock, }]);
     setZIndexState([...zIndex, newZIndex]);
-    // setZIndexState([...zIndex, cards.length]);
     }
   };
 
