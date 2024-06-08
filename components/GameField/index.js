@@ -20,9 +20,9 @@ const GameField = () => {
 
   //измерение размера окна
   const updateContainerSize = () => {
-if (containerRef.current) {
+    if (containerRef.current) {
       const { width, height,left,top } = containerRef.current.getBoundingClientRect();
-      setContainerSize({ width:width-left, height: height - top  });
+      setContainerSize({ width:width-left, height: height   });
     }
   };
 
