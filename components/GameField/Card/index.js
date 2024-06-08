@@ -1,45 +1,34 @@
 'use client';
+import PropTypes from 'prop-types';
 import React from 'react';
-import Draggable from 'react-draggable';
+//Style
 import styles from './styles.module.scss';
+//Hooks
 import  { useState, useEffect, useRef } from 'react';
+import { useGameFieldResize } from '@/hooks/useGameFieldResize';
+//Components
+import Draggable from 'react-draggable';
+
 
 /**
- * Компонент `Card` отображает игровую карточку
+* Компонент `Card` отображает игровую карточку
+ *@property {object} [card] - Параметры карточки x, y, id, sizeBlock
+ *@property {number} [index] - Индекс карточки 
+ *@property {array} [zIndex] - Массив Z-индексов карточек
+ *@property {function} [setZIndex] - Функция для изменения массивов Z-индексов карточек
+ *@property {object} [gameFieldSize] - Размеры игрового поля width, height
  */
-function Card({ x, y,sizeBlock, index,zIndex, setZIndex, windowSize }) {
+function Card({card, index,zIndex, setZIndex, gameFieldSize }) {
 
-
-  const [position, setPosition] = useState({ x:x , y: y }); // состояние для позиции
   const [isAnimating, setIsAnimating] = useState(true);//появление карточки
   const [isDragging, setIsDragging] = useState(false);//перемещается ли карточка
   const cardRef = useRef(null);//устранение ошибки для dragging
   const [randomNumber, setRandomNumber] = useState(1); 
-
-  const prevWindowSize = useRef(windowSize);
-  // Обновление позиции при изменении размеров окна
-  useEffect(() => {
-    const handleResize = () => {
-      
-      const newX=( windowSize.width/prevWindowSize.current.width) * position.x;
-      const newY = ( windowSize.height/prevWindowSize.current.height) * position.y;
-      const newxY = (windowSize.height - newY < (sizeBlock)) ? (windowSize.height - sizeBlock) : newY; // 
-      
-            
-            setPosition({ x:newX , y: newxY  });
-    };
-
-    handleResize(); // Установить начальную позицию
-    prevWindowSize.current = windowSize;
-    // return () => window.removeEventListener('resize', handleResize);
-  }, [windowSize]);
-
-
+  // const initialPosition = { x, y, sizeBlock };
+  const { position, setPosition } = useGameFieldResize(card, gameFieldSize);//хук для вычисления позиции при resize
 
 useEffect(() => {
   setRandomNumber(Math.floor(Math.random() * 5) + 1);// Генерируем случайное число от 1 до 5 для изображения
-  
-
 }, []); // Вычисляем randomNumber только один раз при монтировании
 
 useEffect(() => {
@@ -60,11 +49,9 @@ useEffect(() => {
     setPosition({ x: data.x, y: data.y });
   };
 
-
-
   return (
     <Draggable
-    defaultPosition={{x: x, y: y}}
+    defaultPosition={{x: card.x, y: card.y}}
       bounds="parent"
       onStop={handleDragEnd}
       onStart={handleDragStart}
@@ -82,11 +69,18 @@ useEffect(() => {
       zIndex: zIndex[index],
       backgroundImage: `url('/image/${randomNumber}.png')`,
     }}
-
       >
       </div>
     </Draggable>
   );
 }
+
+Card.propTypes = {
+  card: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  zIndex: PropTypes.object.isRequired,
+  setZIndex: PropTypes.object.isRequired,
+  gameFieldSize: PropTypes.object.isRequired,
+};
 
 export default Card;

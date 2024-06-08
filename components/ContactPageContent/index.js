@@ -13,10 +13,10 @@ const ContactPageContent = () => {
     <div  className={styles.mainWrapper}>
 
       <div className={styles.container}>
-        <h1 className={styles.title}>Контакты</h1>
+        <h1 className={styles.title}>Contact</h1>
         <div className={styles.greetContainer}>
-        <p className={styles.textContent}>Привет!</p>
-        <p className={styles.textContent}>Поделись мнением о нас.</p>
+        <p className={styles.textContent}>Helllo!</p>
+        <p className={styles.textContent}>Share your opinion about us.</p>
         </div>
        
         <Form />

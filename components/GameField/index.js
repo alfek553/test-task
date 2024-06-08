@@ -17,6 +17,8 @@ const GameField = () => {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const containerRef = useRef(null);
   
+
+  //измерение размера окна
   const updateContainerSize = () => {
     if (containerRef.current) {
       const { width, height,left,top } = containerRef.current.getBoundingClientRect();
@@ -39,25 +41,19 @@ const GameField = () => {
       if (event.currentTarget === event.target) {
         const containerRect = event.currentTarget.getBoundingClientRect();
         
-        const sizeBlock = Math.max(containerRect.width * 0.05, 30);//размеры карточки (только ширина, потому что квадрат)
+        const sizeBlock = Math.max(containerRect.width * 0.05, 30);//размеры карточки (квадрат)
         
-      //координаты нажатия
+      //координаты нажатия ( - sizeBlock/2 чтобы клик был на середине )
       let x= (event.clientX - containerRect.left) -(sizeBlock/2);
       let y = (event.clientY - containerRect.top)-(sizeBlock/2);
-
-      //  let xRatio= (x / (containerRect.width)) ;
-      //  let yRatio = (y / (containerRect.height+containerRect.top)) ;
 
       //если карточка выходит за игровое поле сместить её, чтобы поместилась
       if (containerRect.height - y < sizeBlock) {
         y = containerRect.height - sizeBlock;
-        // yRatio = y/ (containerRect.height+containerRect.top) ;
-      
       }
 
       if (containerRect.width - x < sizeBlock) {
         x = containerRect.width - sizeBlock;
-        // xRatio=x/ (containerRect.width);
       }
 
       const uniqueId = uuidv4();
@@ -83,13 +79,11 @@ const GameField = () => {
       {cards.map((card, index) => (
         <Card
           key={card.id}
-          y={card.y}
-          x={card.x}
-          sizeBlock={card.sizeBlock}
+          card={card}
           index={index}
           zIndex={zIndex}
           setZIndex={setZIndex}
-          windowSize={containerSize}
+          gameFieldSize={containerSize}
 
           
         />
