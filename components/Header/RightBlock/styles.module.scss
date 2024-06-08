@@ -2,25 +2,10 @@
 @use '@styles/variables';
 
 
-.footer,
-.container,
 .nav,
 .navList,
 .listItem {
   @include mixins.container;
-}
-
-.footer {
-  padding: 0 0.625rem 1.25rem;
-}
-
-.container {
-  flex-direction: row;
-  flex-wrap: wrap;
-  max-width: 88.75rem;
-  font-size: 1.25rem;
-  margin: 0 auto;
-  gap: 1.25rem;
 }
 
 .nav {
@@ -41,6 +26,7 @@
 .text {
   flex-shrink: 0;
   width: fit-content;
+  
 }
 
 .listItem {

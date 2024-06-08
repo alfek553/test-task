@@ -1,24 +1,16 @@
-import { notFound } from 'next/navigation';
 //Components
-import ContactForm from '@/components/ContactForm';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-export default async function LayoutsPage({
-
-  }) {
-
-  
+import ContactPageContent from '@/components/ContactPageContent';
+export default async function LayoutsPage() {
 
   
     return (
       <>
-      <ContactForm
+      <ContactPageContent
 
-        pagePath="Contact-Us"
 
       >
 
-      </ContactForm>
+      </ContactPageContent>
       </>
     );
   }

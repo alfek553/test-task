@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 //Styles
@@ -13,22 +12,11 @@ import styles from './styles.module.scss';
 function Logo({
     
 }) {
-  const router = useRouter();
-
-
-  const onLogoClick = (e) => {
-    e.preventDefault();
-
-    window.location.replace(`/`);
-    router.refresh(`/`);
-  };
-
   return (
     <div className={styles.container}>
       <Link
         href={'/'}
         className={styles.link}
-        onClick={onLogoClick}
       >
         <Image
           src="/kraisoft-logo.svg"
@@ -44,8 +32,5 @@ function Logo({
   );
 }
 
-Logo.propTypes = {
-
-};
 
 export default Logo;

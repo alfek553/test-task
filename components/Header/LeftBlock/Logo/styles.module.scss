@@ -4,7 +4,7 @@
 
 .container,
 .link {
-  // @include mixins.container;
+  @include mixins.container;
   align-items: center;
   flex-direction: row;
   width: fit-content;
@@ -31,16 +31,4 @@
   }
 }
 
-.title {
-  // @include mixins.visuallyHidden;
 
-  & .layoutName {
-    // @include mixins.visuallyHidden;
-  }
-
-  // @media (min-width: variables.$pageWrapperMediumTablet) {
-  //   @include mixins.visuallyHiddenReset;
-  //   color: variables.$colorDarkGreen;
-  //   margin: 0 0.625rem;
-  // }
-}

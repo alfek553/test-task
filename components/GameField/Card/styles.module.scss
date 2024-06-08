@@ -1,25 +1,17 @@
 
-// $widthPercentage: 5%; // Задаем значение переменной в процентах от ширины родителя
 .card {
     min-width: 30px;
-    // min-height: 30px;
     width: 5%;
-    // height:  calc($width* 1);
     aspect-ratio: 1;
-    // aspect-ratio: 1/1;
     background-color: aqua;
     border: solid 1px #000;
     position: absolute;
     cursor: grab;
     left: 0;
     top: 0;
-    // background-image: url('/image/1.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    // transition: transform 0.3s ease-out;
-    // position: relative;
-    // overflow: hidden;
     }
 .dragging {
   box-shadow: 8px 8px 8px #000;
@@ -27,7 +19,6 @@
 .drag {
     position: absolute;
 }
-
 
 .animating {
     background-color: red;

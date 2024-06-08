@@ -4,7 +4,9 @@ import Draggable from 'react-draggable';
 import styles from './styles.module.scss';
 import  { useState, useEffect, useRef } from 'react';
 
-
+/**
+ * Компонент `Card` отображает игровую карточку
+ */
 function Card({ x, y,sizeBlock, index,zIndex, setZIndex, windowSize }) {
 
 

@@ -5,31 +5,27 @@ import styles from './styles.module.scss';
 import NavLink from '@/components/NavLink';
 
 /**
- * Компонент `LeftBlock` отображает правую часть шапки сайта с навигацией
-
+ * Компонент `RightBlock` отображает правую часть шапки сайта с навигацией
 */
-
 function RightBlock({
 
   }) {
 
     return (
-        <nav className={styles.nav} aria-label="Additional navigation">
+        <nav className={styles.nav}>
              <ul
             className={styles.navList}
-            aria-label="List of Additional Navigation Links"
           >
             <li className={styles.listItem}>
               <NavLink text="Contact Us" link="contact-us" />
             </li>
             <li className={styles.listItem}>
-              <NavLink text="Game" link="game" />
+              <NavLink text="Game" link="/" />
             </li>
           </ul>
         </nav>
     );
   }
-  
   
   export default RightBlock;
   

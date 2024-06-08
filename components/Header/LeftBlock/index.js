@@ -1,6 +1,5 @@
 'use client';
 //Styles
-import styles from './styles.module.scss';
 //Components
 import Logo from './Logo';
 
@@ -9,12 +8,8 @@ import Logo from './Logo';
 
 */
 
-function LeftBlock({
-
-
-  }) {
+function LeftBlock() {
   
-
     return (
       <>
         <Logo
@@ -24,7 +19,6 @@ function LeftBlock({
       </>
     );
   }
-  
   
   export default LeftBlock;
   

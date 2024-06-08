@@ -7,7 +7,9 @@ import styles from './styles.module.scss';
 import Card from './Card';
 import { v4 as uuidv4 } from 'uuid';
 
-
+/**
+ * Компонент `GameField` отображает игровое поле
+ */
 const GameField = () => {
 
   const [cards, setCards] = useState([]);

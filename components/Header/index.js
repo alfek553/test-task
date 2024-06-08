@@ -7,24 +7,15 @@ import RightBlock from "./RightBlock";
 /**
  * Компонент `Header` отображает главную шапку сайта.
  */
-async function Header({
-  }) {
+async function Header() {
 
-  
     return (
       <header className={styles.container}>
-        <LeftBlock
-
-        />
+        <LeftBlock/>
         <RightBlock/>
-
       </header>
     );
   }
-  
-  Header.propTypes = {
-
-  };
   
   export default Header;
   

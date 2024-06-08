@@ -1,5 +1,4 @@
 'use client';
-import PropTypes from 'prop-types';
 //Styles
 import styles from './styles.module.scss';
 //Components

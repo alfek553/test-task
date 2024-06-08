@@ -9,9 +9,7 @@ const currentYear = new Date().getFullYear();
 /**
  * Компонент `Footer` отображает футер сайта.
  */
-async function Footer({
-
-    }) {
+async function Footer() {
 
 
   return (

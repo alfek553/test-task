@@ -1,15 +1,12 @@
-
 //Style
 import styles from './styles.module.scss';
 //Components
 import Link from 'next/link';
 
+/**
+ * Компонент `RulesWrapper` отображает страницу правил игры.
+ */
 const RulesWrapper = () => {
-
-
-
-
-
 
   return (
     <div className={styles.container}>
