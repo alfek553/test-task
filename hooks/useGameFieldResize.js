@@ -31,30 +31,29 @@ export const useGameFieldResize = (card, containerRef) => {
   }, [containerRef]);
 
 
-  useEffect(() => {
-    const handleResize = () => {
+  const handleResize = () => {
+    if (prevWindowSize.current.width && containerSize.width) {
 
-      if (prevWindowSize.current.width && containerSize.width) {
-
-        //рассчет коэф изменения экрана * на координату
-        let newX = (containerSize.width / prevWindowSize.current.width) * position.x;
-        let newY = (containerSize.height / prevWindowSize.current.height) * position.y;
-        if (newY < 0) {
-          newY = 0;
-        }
-        if (newX < 0) {
-          newX = 0;
-        }
-        //если при изменении карточка выходит за пределы поля.
-        const resizeY = (containerSize.height - newY < (card.sizeBlock))
-          ? (containerSize.height - card.sizeBlock) : newY;
-        const resizeX = (containerSize.width - newX < (card.sizeBlock))
-          ? (containerSize.width - card.sizeBlock) : newX;
-
-        setPosition({ x: resizeX, y: resizeY });
+      //рассчет коэф изменения экрана * на координату
+      let newX = (containerSize.width / prevWindowSize.current.width) * position.x;
+      let newY = (containerSize.height / prevWindowSize.current.height) * position.y;
+      if (newY < 0) {
+        newY = 0;
       }
-    };
+      if (newX < 0) {
+        newX = 0;
+      }
+      //если при изменении карточка выходит за пределы поля.
+      const resizeY = (containerSize.height - newY < (card.sizeBlock))
+        ? (containerSize.height - card.sizeBlock) : newY;
+      const resizeX = (containerSize.width - newX < (card.sizeBlock))
+        ? (containerSize.width - card.sizeBlock) : newX;
 
+      setPosition({ x: resizeX, y: resizeY });
+    }
+  };
+
+  useEffect(() => {
     handleResize(); // Установить начальную позицию
     prevWindowSize.current = containerSize;
   }, [containerSize]);
