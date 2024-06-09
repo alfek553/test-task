@@ -16,15 +16,14 @@ import Draggable from 'react-draggable';
  *@property {number} [index] - Индекс карточки 
  *@property {array} [zIndex] - Массив Z-индексов карточек
  *@property {function} [setZIndex] - Функция для изменения массивов Z-индексов карточек
- *@property {object} [gameFieldSize] - Размеры игрового поля width, height
+ *@property {object} [containerRef] - 
  */
-function Card({card, index,zIndex, setZIndex, gameFieldSize }) {
-
+function Card({card, index,zIndex, setZIndex,containerRef }) {
   const [isAnimating, setIsAnimating] = useState(true);//появление карточки
   const [isDragging, setIsDragging] = useState(false);//перемещается ли карточка
   const cardRef = useRef(null);
   const [randomNumber, setRandomNumber] = useState(1); 
-  const { position, setPosition } = useGameFieldResize(card, gameFieldSize);//хук для вычисления позиции при resize
+  const { position, setPosition } = useGameFieldResize(card,containerRef);//хук для вычисления позиции при resize
 
 useEffect(() => {
   setRandomNumber(Math.floor(Math.random() * 5) + 1);// Генерируем случайное число от 1 до 5 для изображения
@@ -64,7 +63,7 @@ useEffect(() => {
       
       }
       ref={cardRef}
-      style={{ '--x': `${position.x}px`, '--y': `${position.y}px`,
+      style={{ '--x': `${card.x}px`, '--y': `${card.y}px`,
       zIndex: zIndex[index],
       backgroundImage: `url('/image/${randomNumber}.png')`,
     }}
@@ -79,7 +78,7 @@ Card.propTypes = {
   index: PropTypes.number.isRequired,
   zIndex: PropTypes.object.isRequired,
   setZIndex: PropTypes.object.isRequired,
-  gameFieldSize: PropTypes.object.isRequired,
+  containerRef: PropTypes.object.isRequired,
 };
 
 export default Card;

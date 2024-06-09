@@ -14,28 +14,8 @@ const GameField = () => {
 
   const [cards, setCards] = useState([]);
   const [zIndex, setZIndexState] = useState([]);
-  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const containerRef = useRef(null);
   
-
-  //измерение размера окна
-  const updateContainerSize = () => {
-    if (containerRef.current) {
-      const { width, height,left,top } = containerRef.current.getBoundingClientRect();
-      setContainerSize({ width:width-left, height: height   });
-    }
-  };
-
-  useEffect(() => {
-    updateContainerSize();
-    window.addEventListener('resize', updateContainerSize);
-
-    return () => {
-      window.removeEventListener('resize', updateContainerSize);
-    };
-  }, []);
-    
- 
     //Создание новой карточки
     const handleClick = (event) => {
       if (event.currentTarget === event.target) {
@@ -88,8 +68,7 @@ const GameField = () => {
           index={index}
           zIndex={zIndex}
           setZIndex={setZIndex}
-          gameFieldSize={containerSize}
-
+          containerRef={containerRef}
           
         />
       ))}
