@@ -1,4 +1,3 @@
-
 @use '@styles/mixins';
 @use '@styles/variables';
 
@@ -13,7 +12,7 @@
 .container {
   width: 100%;
   min-height: calc(100vh - 34px);
-  background-color:  variables.$colorYellow ;
+  background-color: variables.$colorYellow ;
   border: solid 1px #000111;
   padding: 0 1rem;
   flex-grow: 1;
@@ -66,7 +65,7 @@
   border-bottom: 0.0625rem dashed variables.$colorDarkGreen;
   transition: border 0.1s ease-out;
 
-  &:hover{
+  &:hover {
     color: red;
     border-bottom: 0.0625rem dashed transparent;
   }

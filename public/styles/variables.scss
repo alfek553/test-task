@@ -1,52 +1,18 @@
 //colors
-$colorBlack: #000000;
-$colorLightBlack: #222222;
-$colorDarkBrown: #252525;
-$colorWhite: #ffffff;
-$colorAntiquewhite:#faebd7;
 $colorYellow: #e7c053;
-$colorDarkYellow: #d7aa2b;
-$colorRed: #9d0000;
-$colorLightRed: #ae0000;
 $colorDarkGreen: #577e54;
-$colorVeryDarkGreen: #375245;
 $colorMediumGreen: #0d8c70;
-$colorSubMediumGreen: #00bf97;
-$colorDarkGrenGrey: #2c3730;
-$colorGrey: #ccc;
-$colorDarkGrey: #575757;
-$colorVeryDarkGrey: #3e4551;
-$colorBlue: #3c7bcf;
-
-
-
-//padding
-$paddingBig: 2.5rem;
-$paddingMedium: 1.5rem;
-$paddingSmall: 1rem; 
-
-//transition
+$colorWhite: #ffffff;
+$colorAntiquewhite: #faebd7;
+$colorRed: #9d0000;
+$colorBlack: #000000;
 
 :export {
   colorBlack: $colorBlack;
-  colorLightBlack: $colorLightBlack;
-  colorDarkBrown: $colorDarkBrown;
   colorWhite: $colorWhite;
   colorYellow: $colorYellow;
-  colorDarkYellow: $colorDarkYellow;
+  colorAntiquewhite: $colorAntiquewhite;
   colorRed: $colorRed;
-  colorLightRed: $colorLightRed;
   colorDarkGreen: $colorDarkGreen;
-  colorVeryDarkGreen: $colorVeryDarkGreen;
   colorMediumGreen: $colorMediumGreen;
-  colorSubMediumGreen: $colorSubMediumGreen;
-  colorDarkGrenGrey: $colorDarkGrenGrey;
-  colorGrey: $colorGrey;
-  colorDarkGrey: $colorDarkGrey;
-  colorVeryDarkGrey: $colorVeryDarkGrey;
-  colorBlue: $colorBlue;
-  paddingBig: $paddingBig;
-  paddingMedium: $paddingMedium;
-  paddingSmall: $paddingSmall;
-
 }

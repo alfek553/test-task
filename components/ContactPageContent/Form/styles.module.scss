@@ -1,4 +1,3 @@
-
 @use '@styles/mixins';
 @use '@styles/variables';
 
@@ -8,51 +7,48 @@
 .textContent,
 .textareaContainer,
 .buttonContainer {
-  @include mixins.container;
+    @include mixins.container;
 }
+
 .mainWrapper {
-    background-color:  variables.$colorYellow ;
+    background-color: variables.$colorYellow ;
 }
 
 .container {
-  max-width: 700px;
-  border: solid 1px #000111;
-  padding: 0 1rem;
-  flex-grow: 1;
-  margin-left: auto;
-  margin-right: auto;
+    max-width: 700px;
+    border: solid 1px #000111;
+    padding: 0 1rem;
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section {
-  align-items: center;
+    align-items: center;
 }
 
 .title {
-  color: variables.$colorDarkGreen;
-  text-transform: uppercase;
-  font-size: 2rem;
-  line-height: 1.5;
-  font-weight: bold;
-  text-align: center;
-  margin: 10px 0;
+    color: variables.$colorDarkGreen;
+    text-transform: uppercase;
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
 }
 
 .textContainer {
-  max-width: 60rem;
-  gap: 2rem;
+    max-width: 60rem;
+    gap: 2rem;
 }
 
 .textContent {
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.05em;
-  max-width: 60rem;
-  padding: 0;
-  margin: 0;
-}
-
-.formContainer {
-
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.05em;
+    max-width: 60rem;
+    padding: 0;
+    margin: 0;
 }
 
 .form {
@@ -67,24 +63,24 @@
     width: 90%;
     margin: 0 auto;
     margin-bottom: 1rem;
-    
+
 }
 
 .input {
     border: 1px solid #DADADA;
     border-radius: 50px;
     box-sizing: border-box;
-    padding:16px 28px ;
-    width:  calc((100% - 10px)/2);
+    padding: 16px 28px;
+    width: calc((100% - 10px)/2);
     height: 60px;
 }
 
 @media (max-width:643px) {
     .input {
-        width:100%;
+        width: 100%;
         margin: 0 auto;
     }
-} 
+}
 
 .textareaContainer {
     margin-bottom: 1rem;
@@ -98,7 +94,7 @@
 
 .buttonContainer {
     gap: 5px;
-    flex-direction:row;
+    flex-direction: row;
     align-items: flex-end;
     flex-wrap: wrap;
     margin-bottom: 1rem;
@@ -118,7 +114,7 @@
     font-size: 12px;
     line-height: 16px;
     color: #787878;
-    
+
 }
 
 .check input {
@@ -127,7 +123,7 @@
 
 .check a {
     color: #317289;
-    border-bottom: 1px solid  #317289;
+    border-bottom: 1px solid #317289;
 }
 
 .alertForm {
@@ -137,8 +133,8 @@
 
 .input:focus {
     outline: none;
-    border-color:#71A7E2 ;
-    background-color: rgba(113,167,226,0.2);
+    border-color: #71A7E2;
+    background-color: rgba(113, 167, 226, 0.2);
 }
 
 .input:hover {
@@ -151,8 +147,8 @@
 
 .textarea:focus {
     outline: none;
-    border-color:#71A7E2 ;
-    background-color: rgba(113,167,226,0.2);
+    border-color: #71A7E2;
+    background-color: rgba(113, 167, 226, 0.2);
 }
 
 .textarea:hover {
@@ -165,10 +161,9 @@
 
 .submit:hover {
     background-color: variables.$colorMediumGreen;
-    
+
 }
 
 .submit:active {
-   background-color: #001a00; 
+    background-color: #001a00;
 }
-

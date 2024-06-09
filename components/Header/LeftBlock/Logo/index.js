@@ -1,17 +1,12 @@
-import PropTypes from 'prop-types';
 import Image from 'next/image';
 import Link from 'next/link';
-//Styles
 import styles from './styles.module.scss';
-
 
 /**
  * Компонент `Logo` отображает контейнер с логотипом и заголовком страницы.
-
  */
-function Logo({
-    
-}) {
+function Logo() {
+
   return (
     <div className={styles.container}>
       <Link
@@ -31,6 +26,5 @@ function Logo({
     </div>
   );
 }
-
 
 export default Logo;

@@ -1,6 +1,4 @@
 @use '@styles/mixins';
-@use '@styles/variables';
-
 
 .nav,
 .navList,
@@ -10,7 +8,6 @@
 
 .nav {
   width: fit-content;
-  
 }
 
 .navList {
@@ -26,7 +23,7 @@
 .text {
   flex-shrink: 0;
   width: fit-content;
-  
+
 }
 
 .listItem {

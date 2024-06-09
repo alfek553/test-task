@@ -9,7 +9,7 @@ export async function createQuestion(prevState, formData) {
   };
 
   return {
-    message:"Данные успешно отправлены!",
+    message: "Данные успешно отправлены!",
   }
 
 }

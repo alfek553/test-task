@@ -1,1 +1,0 @@
-export { BASE_URL, URLS } from './urls';

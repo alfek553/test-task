@@ -1,17 +1,7 @@
-//Components
 import PrivacyPageContent from '@/components/PrivacyPageContent';
 export default async function LayoutsPage() {
 
-  
-    return (
-      <>
-      <PrivacyPageContent
-
-
-      >
-
-      </PrivacyPageContent>
-      </>
-    );
-  }
-  
+  return (
+    <PrivacyPageContent />
+  );
+}

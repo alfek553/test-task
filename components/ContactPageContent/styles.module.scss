@@ -1,4 +1,3 @@
-
 @use '@styles/mixins';
 @use '@styles/variables';
 
@@ -9,8 +8,9 @@
 .greetContainer {
   @include mixins.container;
 }
+
 .mainWrapper {
-    background-color:  variables.$colorYellow ;
+  background-color: variables.$colorYellow ;
 }
 
 .container {
@@ -23,7 +23,6 @@
   padding-bottom: 50px;
 }
 
-
 .title {
   color: variables.$colorDarkGreen;
   text-transform: uppercase;
@@ -35,9 +34,8 @@
 }
 
 .greetContainer {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
-
 
 .textContainer {
   max-width: 60rem;
@@ -53,5 +51,3 @@
   padding: 0;
   margin: 0;
 }
-
-

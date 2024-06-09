@@ -1,35 +1,37 @@
-
 .card {
-    min-width: 30px;
-    width: 5%;
-    aspect-ratio: 1;
-    background-color: aqua;
-    border: solid 1px #000;
-    position: absolute;
-    cursor: grab;
-    left: 0;
-    top: 0;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    }
+  min-width: 30px;
+  width: 5%;
+  aspect-ratio: 1;
+  background-color: aqua;
+  border: solid 1px #000;
+  position: absolute;
+  cursor: grab;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .dragging {
   box-shadow: 8px 8px 8px #000;
 }
+
 .drag {
-    position: absolute;
+  position: absolute;
 }
 
 .animating {
-    background-color: red;
-animation: moveToPosition 0.3s ease-out;
+  background-color: red;
+  animation: moveToPosition 0.3s ease-out;
 }
 
 @keyframes moveToPosition {
-from {
-  transform: translate(0, 0);
-}
-to {
-  transform: translate(var(--x), var(--y));
-}
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(var(--x), var(--y));
+  }
 }

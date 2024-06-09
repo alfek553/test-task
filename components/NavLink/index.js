@@ -1,7 +1,6 @@
 'use client';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-//Styles
 import styles from './styles.module.scss';
 
 /**
@@ -13,7 +12,7 @@ function NavLink({ text, link }) {
 
   return (
     <Link
-      href={"/"+link}
+      href={"/" + link}
       className={styles.link}
     >
       {text}

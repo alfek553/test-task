@@ -1,6 +1,4 @@
-//Styles
 import styles from './styles.module.scss';
-//Components
 import LeftBlock from './LeftBlock';
 import RightBlock from "./RightBlock";
 
@@ -9,13 +7,12 @@ import RightBlock from "./RightBlock";
  */
 async function Header() {
 
-    return (
-      <header className={styles.container}>
-        <LeftBlock/>
-        <RightBlock/>
-      </header>
-    );
-  }
-  
-  export default Header;
-  
+  return (
+    <header className={styles.container}>
+      <LeftBlock />
+      <RightBlock />
+    </header>
+  );
+}
+
+export default Header;

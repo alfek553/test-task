@@ -1,7 +1,4 @@
-import PropTypes from 'prop-types';
-//Styles
 import styles from './styles.module.scss';
-//Components
 import NavLink from '../NavLink';
 
 const currentYear = new Date().getFullYear();
@@ -10,7 +7,6 @@ const currentYear = new Date().getFullYear();
  * Компонент `Footer` отображает футер сайта.
  */
 async function Footer() {
-
 
   return (
     <footer className={styles.footer}>
@@ -33,8 +29,5 @@ async function Footer() {
     </footer>
   );
 }
-
-Footer.propTypes = {
-};
 
 export default Footer;

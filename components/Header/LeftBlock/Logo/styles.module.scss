@@ -1,7 +1,6 @@
 @use '@styles/mixins';
 @use '@styles/variables';
 
-
 .container,
 .link {
   @include mixins.container;
@@ -30,5 +29,3 @@
     color: variables.$colorRed;
   }
 }
-
-

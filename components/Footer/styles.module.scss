@@ -1,6 +1,4 @@
 @use '@styles/mixins';
-@use '@styles/variables';
-
 
 .footer,
 .container,
@@ -25,7 +23,7 @@
 
 .nav {
   width: fit-content;
-  
+
 }
 
 .navList {
