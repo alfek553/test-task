@@ -2,7 +2,6 @@
 @use '@styles/variables';
 
 .container,
-.section,
 .textContainer,
 .textContent,
 .textareaContainer,
@@ -21,10 +20,6 @@
     flex-grow: 1;
     margin-left: auto;
     margin-right: auto;
-}
-
-.section {
-    align-items: center;
 }
 
 .title {
@@ -166,4 +161,5 @@
 
 .submit:active {
     background-color: #001a00;
+    color:white;
 }

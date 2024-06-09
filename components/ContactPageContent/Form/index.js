@@ -41,7 +41,9 @@ export default function Form({ }) {
           <textarea className={styles.textarea}
             id='comment'
             name="comment"
-            placeholder="Comment">
+            minLength="5"
+            maxLength="100"
+            placeholder="Comment" required>
           </textarea>
         </div>
         <div className={styles.buttonContainer}>
