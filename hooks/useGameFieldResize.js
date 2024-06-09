@@ -14,8 +14,8 @@ export const useGameFieldResize = (card, containerRef) => {
   //измерение размера игрового поля
   const updateContainerSize = () => {
     if (containerRef.current) {
-      const { width, height, left, top } = containerRef.current.getBoundingClientRect();
-      setContainerSize({ width: width - left, height: height });
+      const { width, height } = containerRef.current.getBoundingClientRect();
+      setContainerSize({ width: width, height: height });
     }
   };
 
