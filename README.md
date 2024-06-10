@@ -1,4 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Test-Task
+
+## Описание
+Сайт состоит из 3 частей: header, body, and footer
+– **header** представляет собой полосу вверху страницы с заполнителем для названия или логотипа веб-сайта, а также с некоторым ссылками, напрмер на страницу с контактной формой.
+– **body** содержимое страницы
+– **footer** представляет собой "подвал" страницы, и содержит в себе ссылки на страницы правил игры и политики конфиденциальности.
+
+## Страницы
+### Game
+Гравная страница сайта представляет собой игровое поле (прим. 1), в котором реализован механизм появления новых прямоугольников (прим. 2) на игровом поле, когда пользователь нажимает на любое пустое место пигрового поля. Также пользователь может перемещать карточки по игровому полю.
+Карточка появляется из верхнего левого угла до места клика за одинаковое время для любой точки поля.
+На месте клика появляется середина карточки. Также карточку нельзя создать так чтобы она выходила за рамки поля, для этого её координаты корректируются при создании.
+Для реализации реагирования карточки на изменение размеров игрового поля был создан хук useGameFieldResize. Координаты каточки будут изменяться в зависимости от соотношения предыдущих размером игрового поля и новых размеров (прим. 3).
+### Contact Us 
+Страница сайта с контактной формой. Содержет в себе поля для ввода имени, email и комментария. Для передачи данных формы используется server action.
+### Rules
+ Условная страница с предполагаемыми правилами игры и ссылкой на страницу с игрой.
+ ### Privacy Policy
+Условная страница с предполагаемыми политикой конфиденциальности
+
+
+## Примечания
+1. Не совсем понятна формулировка "The game field should occupy the remaining space between the header and footer". Я реализовал что при открытии страницы экран занимает только header и body, а до footer, нужно скролить.
+2. Я реализовал квадрат, но для того чтобы поменять соотношение сторон достаточно задать коэффициент для aspect-ratio в свойствах карточки.
+3. Если при изменени размеров игрового поля карточка не касается границ игрового поля, то при возвращении к предыдущим размерам карточка вернется на свою изначальную позицию. Если же она касается игрового поля, то её координаты будут смещены при возвращении.
 
 ## Getting Started
 
@@ -16,21 +41,6 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

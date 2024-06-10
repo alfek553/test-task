@@ -30,11 +30,15 @@ export default function Form({ }) {
             type="text"
             id='name'
             name="name"
+            minLength="2"
+            maxLength="70"
             placeholder="Name" required />
           <input className={styles.input}
             type="email"
             id='email'
             name="email"
+            minLength="5"
+            maxLength="70"
             placeholder="E-mail" required />
         </div>
         <div className={styles.textareaContainer}>
@@ -42,7 +46,7 @@ export default function Form({ }) {
             id='comment'
             name="comment"
             minLength="5"
-            maxLength="100"
+            maxLength="800"
             placeholder="Comment" required>
           </textarea>
         </div>
